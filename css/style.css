@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.col-12 {
+    margin: 20px;
+}
+.option__lense{
+    margin-bottom: 60px;
+    justify-content: center;
+}
+.operation {
+    margin-left: 50px;
+}
