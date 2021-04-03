@@ -1,4 +1,8 @@
-const idCamera = new URLSearchParams(window.location.search)
+const idCamera = new URLSearchParams(window.location.search);
+const id = idCamera.get('id');
+let quantity = document.getElementById('quantity');
+let quantityCamera = localStorage.getItem(id) == null ? 1 : localStorage.getItem(id);
+quantity.innerHTML = quantityCamera
 fetch("http://localhost:3000/api/cameras/"+ idCamera.get('id') )
     .then(data => data.json())
         .then(jsonCamera => {
@@ -14,13 +18,20 @@ fetch("http://localhost:3000/api/cameras/"+ idCamera.get('id') )
             for (let jsonlense of jsonCamera.lenses) {
                 document.querySelector(".option__lense").innerHTML += `<option>${jsonlense}</option><br>
                                                                     `;
-            };
+
+            };                                                        
         });
-          
-let quantity = document.getElementById('quantity')
-document.getElementById('add__quantity').addEventListener('click',e =>{
-    quantity.innerHTML = parseInt(quantity.innerHTML) +1
-    });
+
 document.getElementById('del__quantity').addEventListener('click',e =>{
-        quantity.innerHTML = parseInt(quantity.innerHTML) -1
-    });
+    if (parseInt(quantity.innerHTML) >= 2) {
+        quantity.innerHTML = parseInt(quantity.innerHTML) -1;
+        quantityCamera -= 1;
+    }
+});
+document.getElementById('add__quantity').addEventListener('click',e =>{
+    quantity.innerHTML = parseInt(quantity.innerHTML) +1;
+    quantityCamera += 1;
+});
+document.getElementById('getelement').addEventListener('click',e =>{
+    localStorage.setItem(idCamera.get('id'),quantityCamera);
+});

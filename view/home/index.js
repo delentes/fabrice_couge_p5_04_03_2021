@@ -8,10 +8,10 @@ fetch("http://localhost:3000/api/cameras")
                                                                             <div class="card-body">
                                                                                 <h5 class="card-title d-flex justify-content-between">${jsonCamera.name}</h5>
                                                                                 <p class="card-text">${jsonCamera.price/100 + ',00' + ' ' + "\u20ac"}</p>
-                                                                                <a href="vcam_1.html?id=${jsonCamera._id}" >en savoir plus</a>
+                                                                                <a href="../product/product.html?id=${jsonCamera._id}" >en savoir plus</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     `;
-        }
+        };
     });
