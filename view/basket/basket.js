@@ -1,5 +1,5 @@
 
-fetch("http://localhost:3000/api/cameras")
+fetch("https://ab-p5-api.herokuapp.com/api/cameras")
 .then(data => data.json())
     .then(jsonListCamera => {
         if(localStorage.length == 0){
@@ -19,29 +19,13 @@ fetch("http://localhost:3000/api/cameras")
                                                                                         <div id="quantity">quantitée : ${quantity}</div><br>
                                                                                         <p class="card-text">montant : ${jsonCamera.price*quantity/100 + ',00' + ' ' + "\u20ac"}</p>
                                                                                         <a href="../../view/product/product.html?id=${jsonCamera._id}" >retour à la page article</a><br>
-                                                                                        <input id="${cameraId}" type="submit" value="supprimer l'article"><br>
+                                                                                        <input onclick="delCamera(${cameraId})" type="submit" value="supprimer l'article"><br>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            `;
-                        document.getElementById(cameraId).addEventListener('click', e=> {
-                        localStorage.removeItem(cameraId);
-                        window.location.reload();
-                        });
-                    } 
-                }
-            }
-        }
-        for (const [cameraId,quantity] of Object.entries(localStorage) ){
-            for (let jsonCamera of jsonListCamera) {
-                if (cameraId == jsonCamera._id) {
-                    
-                    
-                        
-                    
-                    
+                                                                            `;  
+                    }
                 }
             }
         }
     });
-    

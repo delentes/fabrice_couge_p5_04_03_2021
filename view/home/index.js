@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/api/cameras")
+fetch("https://ab-p5-api.herokuapp.com/api/cameras")
 .then(data => data.json())
     .then(jsonListCamera => {
         for (let jsonCamera of jsonListCamera) {
