@@ -3,7 +3,7 @@ const id = idCamera.get('id');
 let quantity = document.getElementById('quantity');
 let quantityCamera = localStorage.getItem(id) == null ? 1 : localStorage.getItem(id);
 quantity.innerHTML = quantityCamera
-fetch("https://ab-p5-api.herokuapp.com/api/cameras/"+ idCamera.get('id') )
+fetch("http://localhost:3000/api/cameras/"+ idCamera.get('id') )
     .then(data => data.json())
         .then(jsonCamera => {
             document.querySelector(".produit__page").innerHTML += `<div class="row col-12 col-lg-12">
