@@ -8,6 +8,7 @@ fetch("http://localhost:3000/api/cameras")
                                                                     </div>
                                                                     `;
         }else {
+            let total=0;
             for (const [cameraId,quantity] of Object.entries(localStorage) ){
                 for (let jsonCamera of jsonListCamera) {
                     if (cameraId == jsonCamera._id) {
@@ -19,18 +20,16 @@ fetch("http://localhost:3000/api/cameras")
                                                                                         <div id="quantity">quantitée : ${quantity}</div><br>
                                                                                         <p class="card-text">montant : ${jsonCamera.price*quantity/100 + ',00' + ' ' + "\u20ac"}</p>
                                                                                         <a href="../../view/product/product.html?id=${jsonCamera._id}" >retour à la page article</a><br>
-                                                                                        <input onclick="deleteCamera(${cameraId})" type="button" value="supprimer l'article"><br>
+                                                                                        <input onclick="deleteCamera('${cameraId}')" type="button" value="supprimer l'article"><br>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                             `;
-                        
-                        let total = jsonCamera.price*quantity;
-                        
-                        console.log(total)
+                        total += jsonCamera.price*quantity;
+                        document.querySelector('.total').innerHTML = `total de votre commande : ${total/100 + ',00' + ' ' + "\u20ac"}`
                     }
-
                 }
+                
             }
         }
     });

@@ -34,12 +34,9 @@ document.forms["registration"].addEventListener("input",function(e) {
         let small = document.getElementById('lastname');
 
         if (RegExp.test(lastName.value)){
-            small.innerHTML = 'champs valide';
             small.classList.remove('text-danger');
-            small.classList.add('text-success');
         } else {
             small.innerHTML = 'champs invalide';
-            small.classList.remove('text-success');
             small.classList.add('text-danger');
         }
     }
@@ -55,12 +52,9 @@ document.forms["registration"].addEventListener("input",function(e) {
         let small = document.getElementById('firstname');
 
         if (RegExp.test(firstName.value)){
-            small.innerHTML = 'champs valide';
             small.classList.remove('text-danger');
-            small.classList.add('text-success');
         } else {
             small.innerHTML = 'champs invalide';
-            small.classList.remove('text-success');
             small.classList.add('text-danger');
         }
     }
@@ -76,18 +70,34 @@ document.forms["registration"].addEventListener("input",function(e) {
         let small = document.getElementById('city');
 
         if (RegExp.test(city.value)){
-            small.innerHTML = 'champs valide';
             small.classList.remove('text-danger');
-            small.classList.add('text-success');
         } else {
             small.innerHTML = 'champs invalide';
-            small.classList.remove('text-success');
+            small.classList.add('text-danger');
+        }
+    }
+
+    //regexp e.adress
+    let adressRegExp = /^[0-9A-Za-zéèêëïä' -]+[0-9A-Za-zéèêëïä]$/;
+    let adress = inputs.adress;
+
+    adress.addEventListener('input',function() {
+        validemail(this);
+    });
+    const validemail = function(adress){
+        
+        let small = document.getElementById('adress');
+
+        if (adressRegExp.test(adress.value)){
+            small.classList.remove('text-danger');
+        } else {
+            small.innerHTML = 'champs invalide';
             small.classList.add('text-danger');
         }
     }
 
     //regexp e.mail
-    let emailRegExp = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+    let emailRegExp = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
     let email = inputs.email;
 
     email.addEventListener('input',function() {
@@ -98,12 +108,9 @@ document.forms["registration"].addEventListener("input",function(e) {
         let small = document.getElementById('email');
 
         if (emailRegExp.test(email.value)){
-            small.innerHTML = 'champs valide';
             small.classList.remove('text-danger');
-            small.classList.add('text-success');
         } else {
             small.innerHTML = 'champs invalide';
-            small.classList.remove('text-success');
             small.classList.add('text-danger');
         }
     }
