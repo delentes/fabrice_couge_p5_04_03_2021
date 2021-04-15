@@ -1,24 +1,65 @@
+response = 'response';
+let product_id = new Array;
+
+for (const [cameraId,quantity] of Object.entries(localStorage) ){
+    product_id.push(cameraId);
+};
+
 //validation of all fields filled in
 document.forms["registration"].addEventListener("submit",function(e) {
-
+    
     let error;
     let inputs = this;
-    console.log(inputs)
 
         for(let i=0; i< inputs.length; i++){
             if (!inputs[i].value){
                 error = "Veillez renseigner tous les champs";
             }
         }
+        
+            if ( product_id == 0 ){
+                error = "Veillez ajouter un article à votre panier";
+            }
         if (error) {
             e.preventDefault();
             document.getElementById("error").innerHTML = error;
             return false;
         } else {
-            alert('Formulaire envoyé');
-        }
-
+            e.preventDefault();
+            
+            const data = {
+            contact: {
+                firstName : inputs.firstname.value,
+                lastName : inputs.lastname.value,
+                address : inputs.adress.value,
+                city : inputs.city.value,
+                email : inputs.email.value
+                },
+            products : product_id
+            };
+            
+            fetch("http://localhost:3000/api/cameras/order",{
+                method:'POST',
+                headers: {
+                    "Content-Type" : "application/json",
+                },
+                body:JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data =>{
+                let stringData = JSON.stringify(data);
+                localStorage.setItem(response,stringData);
+                document.location.href='../../view/orderValidation/orderValidation.html';
+                console.log('Success:',data);
+            })
+            .catch((error) =>{
+                console.error('Error:',error);
+            })
+            
+        };
 });
+
+
 
 document.forms["registration"].addEventListener("input",function(e) {
 
@@ -114,12 +155,10 @@ document.forms["registration"].addEventListener("input",function(e) {
         let small = document.getElementById('email');
 
         if (emailRegExp.test(email.value)){
-            small.innerHTML = 'champs valide';
+            small.innerHTML = ' ';
             small.classList.remove('text-danger');
-            small.classList.add('text-success');
         } else {
             small.innerHTML = 'champs invalide';
-            small.classList.remove('text-success');
             small.classList.add('text-danger');
         }
     }

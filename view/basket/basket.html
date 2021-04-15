@@ -16,7 +16,9 @@
                     <li>
                         <a href="../../view/home/index.html">Acceuil</a>
                     </li>
-                    
+                    <li>
+                        <a href="../orderValidation/orderValidation.html">validation</a>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -24,32 +26,31 @@
 			<h1>Résumé de votre commande</h1>
 			<div class="container-fluid row produit__page"></div>
             <div class="row total"></div>
-            <div>
+            <div class="registation">
                 <form action="" method="POST" name="registration">
-                        <legend></legend>
                         <div class="form-group">
                             <label for="lastname">Nom :</label>
-                            <input type="text" name="lastname" placeholder="DUPOND">
+                            <input class="lastname" type="text" name="lastname" placeholder="DUPOND">
                             <small id="lastname"></small>
                         </div>
                         <div class="form-group">
                             <label for="firstname">Prénom :</label>
-                            <input type="text" name="firstname" placeholder="Pierre">
+                            <input class="firstname" type="text" name="firstname" placeholder="Pierre">
                             <small id="firstname"></small>
                         </div>
                         <div class="form-group">
                             <label for="city">Ville : </label>
-                            <input type="text" name="city" placeholder="AVIGNON">
+                            <input class="city" type="text" name="city" placeholder="AVIGNON">
                             <small id="city"></small>
                         </div>
                         <div class="form-group">
                             <label for="adress">Votre adresse : </label>
-                            <input type="text" name="adress" placeholder="20 rue de la chaussée">
+                            <input class="adress" type="text" name="adress" placeholder="20 rue de la chaussée">
                             <small id="adress"></small>
                         </div>
                         <div class="form-group">
                             <label for="email">Votre email : </label>
-                            <input type="email" name="email" placeholder="pierre_dupond@dde.fr">
+                            <input class="email" type="email" name="email" placeholder="pierre_dupond@dde.fr">
                             <small id="email"></small>
                         </div>  
                         <input type="submit" id="sub__form" value="envoyer">
