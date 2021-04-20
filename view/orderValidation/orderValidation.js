@@ -16,6 +16,7 @@ document.querySelector(".validation").innerHTML =`  <div>
                                                     `;
 
 document.getElementById('confirmation').addEventListener('click',e =>{
-    localStorage.clear();
+    
     document.location.href='../../view/home/index.html';
 })
+localStorage.clear();
