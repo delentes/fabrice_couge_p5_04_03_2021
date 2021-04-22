@@ -2,7 +2,7 @@ const idCamera = new URLSearchParams(window.location.search);
 const id = idCamera.get('id');
 let quantity = document.getElementById('quantity');
 let quantityCamera = localStorage.getItem(id) == null ? 1 : localStorage.getItem(id);
-quantity.innerHTML = quantityCamera
+quantity.innerHTML = quantityCamera;
 fetch("http://localhost:3000/api/cameras/"+ idCamera.get('id') )
     .then(data => data.json())
         .then(jsonCamera => {
