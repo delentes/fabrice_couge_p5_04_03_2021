@@ -31,6 +31,7 @@ document.getElementById('del__quantity').addEventListener('click',e =>{
 document.getElementById('add__quantity').addEventListener('click',e =>{
     quantity.innerHTML = parseInt(quantity.innerHTML) +1;
     quantityCamera += 1;
+    quantityCamera = parseInt(quantity.innerHTML)
 });
 document.getElementById('getelement').addEventListener('click',e =>{
     localStorage.setItem(idCamera.get('id'),quantityCamera);
