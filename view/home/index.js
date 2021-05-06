@@ -2,7 +2,7 @@ fetch("http://localhost:3000/api/cameras")
 .then(data => data.json())
     .then(jsonListCamera => {
         for (let jsonCamera of jsonListCamera) {
-            document.querySelector(".produits__page").innerHTML += `<div class="product col-12 col-md-6 col-lg-3">
+            document.querySelector(".produits__page").innerHTML += `<div class="product col-12 col-md-6 col-lg-4 col-xl-3">
                                                                         <div class="card article">
                                                                             <img src="${jsonCamera.imageUrl}" class="card-img-top" height="250">
                                                                             <div class="card-body">
