@@ -1,5 +1,8 @@
 fetch("http://localhost:3000/api/cameras")
 .then(data => data.json())
+.catch((error) => {
+    console.log(error);
+})
     .then(jsonListCamera => {
         for (let jsonCamera of jsonListCamera) {
             document.querySelector(".produits__page").innerHTML += `<div class="product col-12 col-md-6 col-lg-4 col-xl-3">
@@ -14,4 +17,7 @@ fetch("http://localhost:3000/api/cameras")
                                                                     </div>
                                                                     `;
         };
+    })
+    .catch((error) => {
+        console.log(error);
     });
