@@ -4,6 +4,7 @@ fetch("http://localhost:3000/api/cameras")
 .then(data => data.json())
 .catch((error) => {
     console.log(error);
+    // Management in the event of no response from the API
     document.querySelector(".produits__page").innerHTML += `<div class="text-center col-12">
                                                                 <h2>Site indisponible pour le moment</h2>
                                                             </div>

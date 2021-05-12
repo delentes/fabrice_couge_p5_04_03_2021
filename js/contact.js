@@ -5,21 +5,24 @@ for (const [cameraId,quantity] of Object.entries(localStorage) ){
     product_id.push(cameraId);
 };
 
-//validation of all fields filled in
+
 document.forms["registration"].addEventListener("submit",function(e) {
 
     let error;
     let inputs = this;
 
+        // Validation of all fields filled in
         for(let i=0; i< inputs.length; i++){
             if (!inputs[i].value){
                 error = "Veillez renseigner tous les champs";
             }
         }
 
-            if ( product_id == 0 ){
-                error = "Veillez ajouter un article à votre panier";
-            }
+        // Checking the contents of the basket
+        if ( product_id == 0 ){
+            error = "Veillez ajouter un article à votre panier";
+        }
+
         if (error) {
             e.preventDefault();
             document.getElementById("error").innerHTML = error;
@@ -38,6 +41,7 @@ document.forms["registration"].addEventListener("submit",function(e) {
                 },
             products : product_id
             };
+            // Send form and object to API
             fetch("http://localhost:3000/api/cameras/order",{
                 method:'POST',
                 headers: {
@@ -45,12 +49,12 @@ document.forms["registration"].addEventListener("submit",function(e) {
                 },
                 body:JSON.stringify(data),
             })
+            // Retrieve the response from the API and send to the localstorage
             .then(response => response.json())
             .then(data =>{
                 let stringData = JSON.stringify(data);
                 localStorage.setItem(response,stringData);
                 document.location.href='../../view/orderValidation/orderValidation.html';
-                console.log('Success:',data);
             })
             .catch((error) =>{
                 console.error('Error:',error);

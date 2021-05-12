@@ -1,3 +1,4 @@
+// Managing object deletion
 let cameraId = localStorage.key['']
      function deleteCamera (cameraId) {
         localStorage.removeItem(cameraId);
