@@ -3,6 +3,10 @@ fetch("http://localhost:3000/api/cameras")
 .then(data => data.json())
 .catch((error) => {
     console.log(error);
+    document.querySelector(".produit__page").innerHTML += `<div class="text-center col-12">
+                                                                <h2>Site indisponible pour le moment</h2>
+                                                            </div>
+                                                            `;
 })
 .then(jsonListCamera => {
     if(localStorage.length == 0){

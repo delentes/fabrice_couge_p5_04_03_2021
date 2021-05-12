@@ -8,6 +8,10 @@ fetch("http://localhost:3000/api/cameras/"+ idCamera.get('id') )
 .then(data => data.json())
 .catch((error) => {
     console.log(error);
+    document.querySelector(".produit__page").innerHTML += `<div class="text-center col-12">
+                                                                <h2>Site indisponible pour le moment</h2>
+                                                            </div>
+                                                            `;
 })
 .then(jsonCamera => {
     document.querySelector(".produit__page").innerHTML += `<div class="row col-12 col-lg-12">

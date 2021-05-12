@@ -1,8 +1,15 @@
+// API call
 fetch("http://localhost:3000/api/cameras")
+// Converting data to json format
 .then(data => data.json())
 .catch((error) => {
     console.log(error);
+    document.querySelector(".produits__page").innerHTML += `<div class="text-center col-12">
+                                                                <h2>Site indisponible pour le moment</h2>
+                                                            </div>
+                                                            `;
 })
+// Display of each object transmitted by the API
     .then(jsonListCamera => {
         for (let jsonCamera of jsonListCamera) {
             document.querySelector(".produits__page").innerHTML += `<div class="product col-12 col-md-6 col-lg-4 col-xl-3">
