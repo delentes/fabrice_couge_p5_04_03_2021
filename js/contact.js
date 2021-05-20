@@ -69,7 +69,7 @@ document.forms["registration"].addEventListener("input",function(e) {
     //regex lastname
     let inputs = this;
     let lastName = inputs.lastname;
-    let RegExp = /^([A-Za-zéèêëïä]{1,20})?([' -]{0,1})?([A-Za-zéèêëïä '.-]{1,20})$/;
+    let RegExp = /^([A-Za-zéèêëïä]{1,20})?([' -]{0,1})?([A-Za-zéèêëïä.]{1,20})$/;
 
     lastName.addEventListener('input',function() {
         validLastName(this);
