@@ -17,7 +17,7 @@ document.querySelector(".validation").innerHTML =`  <div>
                                                     </div>
                                                     `;
 
-// Returns tothe home page
+// Returns to the home page
 document.getElementById('confirmation').addEventListener('click',e =>{
     document.location.href='../../view/home/index.html';
 })

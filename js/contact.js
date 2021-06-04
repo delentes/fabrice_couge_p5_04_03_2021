@@ -32,15 +32,15 @@ document.forms["registration"].addEventListener("submit",function(e) {
             e.preventDefault();
 
             const data = {
-            contact: {
-                firstName : inputs.firstname.value,
-                lastName : inputs.lastname.value,
-                address : inputs.adress.value,
-                city : inputs.city.value,
-                email : inputs.email.value
-                },
-            products : product_id
-            };
+                contact: {
+                    firstName : inputs.firstname.value,
+                    lastName : inputs.lastname.value,
+                    address : inputs.adress.value,
+                    city : inputs.city.value,
+                    email : inputs.email.value
+                    },
+                products : product_id
+                };
             // Send form and object to API
             fetch("http://localhost:3000/api/cameras/order",{
                 method:'POST',

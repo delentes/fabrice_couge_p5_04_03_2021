@@ -6,7 +6,7 @@ let quantityCamera = localStorage.getItem(id) == null ? 1 : localStorage.getItem
 quantity.innerHTML = quantityCamera;
 
 // API call
-fetch("http://localhost:3000/api/cameras/"+ idCamera.get('id') )
+fetch("http://localhost:3000/api/cameras/"+ id )
 // Converting data to json format
 .then(data => data.json())
 .catch((error) => {
@@ -20,7 +20,7 @@ fetch("http://localhost:3000/api/cameras/"+ idCamera.get('id') )
 // Display of the object according to the identifier provided by the URL
 .then(jsonCamera => {
     document.querySelector(".produit__page").innerHTML += `<div class="row col-12 col-lg-12">
-                                                                    <img src="${jsonCamera.imageUrl}" class="col-lg-6">
+                                                                    <img src="${jsonCamera.imageUrl}" class="col-lg-5">
                                                                     <div class="col-lg-6">
                                                                     <h1 class="card-title d-flex justify-content-between">${jsonCamera.name}</h1>
                                                                     <p class="card-text">${jsonCamera.price/100 + ',00' + ' ' + "\u20ac"}</p>
