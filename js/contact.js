@@ -5,7 +5,6 @@ for (const [cameraId,quantity] of Object.entries(localStorage) ){
     product_id.push(cameraId);
 };
 
-
 document.forms["registration"].addEventListener("submit",function(e) {
 
     let error;
@@ -61,8 +60,6 @@ document.forms["registration"].addEventListener("submit",function(e) {
             })
         }
 });
-
-
 
 document.forms["registration"].addEventListener("input",function(e) {
 

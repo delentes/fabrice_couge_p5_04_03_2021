@@ -17,9 +17,10 @@ document.querySelector(".validation").innerHTML =`  <div>
                                                     </div>
                                                     `;
 
+// Deletion of localstorage
+localStorage.clear();
+
 // Returns to the home page
 document.getElementById('confirmation').addEventListener('click',e =>{
     document.location.href='../../view/home/index.html';
 })
-// Deletion of localstorage
-localStorage.clear();
